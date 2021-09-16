@@ -16,6 +16,7 @@
         <module>tutorials-lesson7</module>
         <module>tutorials-lesson8</module>
         <module>tutorials-lesson9</module>
+        <module>tutorials-lesson10</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -25,6 +26,7 @@
         <quartz-version>2.3.2</quartz-version>
         <logback-classic-version>1.2.5</logback-classic-version>
         <junit-version>5.7.2</junit-version>
+        <mysql-version>8.0.26</mysql-version>
     </properties>
 
     <dependencyManagement>
@@ -46,6 +48,12 @@
                 <artifactId>junit-jupiter-api</artifactId>
                 <version>${junit-version}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
