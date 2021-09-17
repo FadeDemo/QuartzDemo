@@ -17,6 +17,7 @@
         <module>tutorials-lesson8</module>
         <module>tutorials-lesson9</module>
         <module>tutorials-lesson10</module>
+        <module>tutorials-lesson11</module>
     </modules>
     <packaging>pom</packaging>
 
