@@ -17,6 +17,7 @@
         <module name="tutorials-lesson4" />
         <module name="HelloWorld" />
         <module name="tutorials-lesson5" />
+        <module name="example" />
       </profile>
     </annotationProcessing>
   </component>
