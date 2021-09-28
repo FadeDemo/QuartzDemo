@@ -7,3 +7,4 @@
 /tutorials-lesson7/target/
 /tutorials-lesson8/target/
 **/target
+**/**.iml
