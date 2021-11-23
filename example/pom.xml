@@ -37,11 +37,43 @@
             <artifactId>quartz-jobs</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.transaction/jta -->
         <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-terracotta</artifactId>
+            <version>2.6.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.terracotta</groupId>
+            <artifactId>terracotta-toolkit-1.6-runtime</artifactId>
+            <version>5.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.terracotta</groupId>
+            <artifactId>terracotta-toolkit-runtime</artifactId>
+            <version>4.3.10.0.68</version>
+        </dependency>
+
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>terracotta-repository</id>
+            <url>http://www.terracotta.org/download/reflector/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
 </project>
