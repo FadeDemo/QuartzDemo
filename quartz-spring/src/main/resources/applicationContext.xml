@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloSpring" class="org.fade.demo.quartzdemo.quartzspring.HelloSpring" />
+
+    <!--JobDetail有两种创建方式-->
+    <!--通过MethodInvokingJobDetailFactoryBean的方式-->
+    <!--此方式无须实现Job接口-->
+<!--    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+<!--        <property name="targetObject" ref="helloSpring" />-->
+<!--        <property name="targetMethod" value="execute" />-->
+<!--    </bean>-->
+    <!--通过JobDetailFactoryBean的方式-->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="org.fade.demo.quartzdemo.quartzspring.HelloSpring" />
+        <property name="durability" value="true" />
+    </bean>
+
+    <!--集成Spring时，调度方式和非Spring方式有所不同，
+    JobKey是由Trigger中关联的JobDetail决定的，
+    需同时在Scheduler中指定JobDetail-->
+    <!--Trigger也可以配置多种，比如SimpleTrigger和CronTrigger-->
+    <!--这里只演示SimpleTrigger-->
+    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="startTime" value="#{new java.util.Date()}" />
+        <property name="repeatCount" value="1" />
+        <property name="repeatInterval" value="5000" />
+        <property name="jobDetail" ref="jobDetail" />
+    </bean>
+
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="jobDetails" ref="jobDetail" />
+        <property name="triggers" ref="simpleTrigger" />
+    </bean>
+
+</beans>

@@ -19,6 +19,7 @@
         <module>tutorials-lesson10</module>
         <module>tutorials-lesson11</module>
         <module>example</module>
+        <module>quartz-spring</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -30,6 +31,7 @@
         <junit-version>5.7.2</junit-version>
         <mysql-version>8.0.26</mysql-version>
         <jta-version>1.1</jta-version>
+        <spring.framework.version>5.3.13</spring.framework.version>
     </properties>
 
     <dependencyManagement>
@@ -65,11 +67,22 @@
                 <version>${quartz-version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/javax.transaction/jta -->
             <dependency>
                 <groupId>javax.transaction</groupId>
                 <artifactId>jta</artifactId>
                 <version>${jta-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.framework.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
